@@ -1,11 +1,11 @@
-import streamlit as st
-import google.generativeai as genai
-import toml
 
 # ✅ Load Gemini API Key from local secrets.toml file
-secrets_path = r"C:\Users\DELL\PycharmProjects\PythonProject12\streamlit\secrets.toml"
-secrets = toml.load(secrets_path)
-api_key = secrets["GEMINI_API_KEY"]
+import streamlit as st
+import google.generativeai as genai
+
+# ✅ Load Gemini API key from Streamlit Cloud secrets
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
 
 # ✅ Configure Gemini
 genai.configure(api_key=api_key)
